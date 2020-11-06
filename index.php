@@ -1,7 +1,6 @@
-
 <?php
 session_start();
-  include("upturn_hms/inc/connect.php") ;
+  require_once("inc/connect.php") ;
 
 if(isset($_POST['login']))
 {
@@ -12,12 +11,12 @@ $password=$_POST['password'];
 if($username && $password)
 {
 	
-	$query=mysql_query("SELECT * FROM login WHERE username='$username' ")or die (mysql_error());
-	$numrows=mysql_num_rows($query);
+	$query=mysqli_query($db_connect, "SELECT * FROM login WHERE username='$username'");
+	$numrows=mysqli_num_rows($query);
 	//echo $numrows;
 	if ($numrows!=0)
 	{
-		while($row=mysql_fetch_assoc($query))
+		while($row=mysqli_fetch_assoc($query))
 		{
 			$dbusername=$row['username'];
 			$dbpassword=$row['password'];

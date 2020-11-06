@@ -130,8 +130,8 @@
          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <?php
 $sql="SELECT * FROM login";
-    $write =mysql_query($sql) or die(mysql_error($db_connect));
-     $row2=mysql_fetch_array($write)or die (mysql_error($db_connect));
+    $write =mysqli_query($db_connect, $sql) or die(mysqli_error($db_connect));
+     $row2=mysqli_fetch_array($write)or die (mysqli_error($db_connect));
      //print_r($row2); exit();
 ?>
               <img src="../../dashboard/Upload/Adminprofile/<?php echo $row2['profile'];?>" class="user-image" alt="User Image">

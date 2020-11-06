@@ -10,12 +10,12 @@ $username=$_POST['username'];
 //echo$password; exit();
 if($username)
 {
-  $query=mysql_query("SELECT * FROM login WHERE username='$username' ")or die (mysql_error($db_connect));
-  $numrows=mysql_num_rows($query);
+  $query=mysqli_query($db_connect, "SELECT * FROM login WHERE username='$username' ")or die (mysqli_error($db_connect));
+  $numrows=mysqli_num_rows($query);
   //echo $numrows;
   if ($numrows!=0)
   {
-    while($row=mysql_fetch_assoc($query))
+    while($row=mysqli_fetch_assoc($query))
     {
       $dbusername=$row['username'];
       //$dbpassword=$row['password'];

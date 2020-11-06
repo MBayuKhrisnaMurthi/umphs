@@ -1,5 +1,5 @@
 <?php
-include"../inc/connect.php ";
+include "../inc/connect.php ";
 //echo "string"; exit;
 ?>
 <!-- Left side column. contains the logo and sidebar -->
@@ -11,8 +11,8 @@ include"../inc/connect.php ";
         <div class="pull-left image">
            <?php
 $sql="SELECT * FROM login";
-    $write =mysql_query($sql) or die(mysql_error($db_connect));
-     $row2=mysql_fetch_array($write)or die (mysql_error($db_connect));
+    $write =mysqli_query($db_connect, $sql) or die(mysqli_error($db_connect));
+     $row2=mysqli_fetch_array($write)or die (mysqli_error($db_connect));
      //print_r($row2?>
           <img src="../../dashboard/Upload/Adminprofile/<?php echo $row2['profile'];?>" class="img-circle" alt="User Image">
         </div>
